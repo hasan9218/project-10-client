@@ -70,7 +70,7 @@ const FeaturedFoods = () => {
         <div className="mt-10">
           <button
             onClick={() => navigate("/foods")}
-            className="bg-green-800 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-lg transition"
+            className="bg-green-800 cursor-pointer hover:bg-green-600 text-white font-medium px-6 py-3 rounded-lg transition"
           >
             Show All
           </button>
