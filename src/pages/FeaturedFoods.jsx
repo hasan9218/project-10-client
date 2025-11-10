@@ -1,24 +1,51 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import { FaUtensils } from "react-icons/fa";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
+import { FaUtensils } from 'react-icons/fa';
 
 const FeaturedFoods = () => {
   const [foods, setFoods] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Fetch data from your backend API
+  // Fetch data from backend API
   useEffect(() => {
-    fetch("mongodb+srv://plate-share-db:03tK1G1650uv5eal@cluster0.vz0nmoq.mongodb.net/?appName=Cluster0") // ⬅️ Replace with your actual API endpoint
-      .then((res) => res.json())
-      .then((data) => {
-        // Sort by quantity descending & take top 6
-        const sorted = [...data].sort(
-          (a, b) => b.foodQuantity - a.foodQuantity
-        );
-        setFoods(sorted.slice(0, 6));
+    setLoading(true);
+    fetch('http://localhost:3000/api/featured-foods') // Adjust URL if server is hosted elsewhere
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch foods');
+        return res.json();
       })
-      .catch((err) => console.error("Error fetching foods:", err));
+      .then((data) => {
+        setFoods(data); // Data is already sorted by server
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Error fetching foods:', err);
+        setError('Unable to load. Please try again later.');
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return (
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-5 text-center">
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-5 text-center">
+          <p className="text-red-600">{error}</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-16 bg-gray-50">
@@ -39,25 +66,21 @@ const FeaturedFoods = () => {
               className="bg-white rounded-xl shadow-lg overflow-hidden border hover:shadow-2xl transition"
             >
               <img
-                src={food.foodImage || "https://i.ibb.co/4V8s1Db/food-placeholder.jpg"}
+                src={food.foodImage || 'https://i.ibb.co/4V8s1Db/food-placeholder.jpg'}
                 alt={food.foodName}
                 className="w-full h-48 object-cover"
               />
-
               <div className="p-5 text-left">
-                <h3 className="text-xl font-semibold text-green-900">
-                  {food.foodName}
-                </h3>
+                <h3 className="text-xl font-semibold text-green-900">{food.foodName}</h3>
                 <p className="text-gray-600 mt-1">
                   Quantity: <span className="font-medium">{food.foodQuantity}</span>
                 </p>
                 <p className="text-gray-600">
                   Location: <span className="font-medium">{food.pickupLocation}</span>
                 </p>
-
                 <button
                   onClick={() => navigate(`/foods/${food._id}`)}
-                  className="mt-4 bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded-lg w-full transition"
+                  className="mt-4 bg-green-700 cursor-pointer hover:bg-green-600 text-white px-4 py-2 rounded-lg w-full transition"
                 >
                   View Details
                 </button>
@@ -69,7 +92,7 @@ const FeaturedFoods = () => {
         {/* Show All Button */}
         <div className="mt-10">
           <button
-            onClick={() => navigate("/foods")}
+            onClick={() => navigate('/availablefoods')}
             className="bg-green-800 cursor-pointer hover:bg-green-600 text-white font-medium px-6 py-3 rounded-lg transition"
           >
             Show All
