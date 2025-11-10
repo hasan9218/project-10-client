@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Banner from "../components/Banner";
 import FeaturedFoods from "./FeaturedFoods";
+import AvailableFoods from "./AvailableFoods";
 // import Cards from "../components/Cards";
 // import TopRatedProviders from "../components/TopRatedProviders";
 // import HowItWorks from "../components/HowItWorks";
@@ -41,7 +42,7 @@ const Homepage = () => {
 
 
       <div data-aos="zoom-in">
-        {/* <FeaturedCategories /> */}
+        {/* <AvailableFoods /> */}
       </div>
     </>
   );

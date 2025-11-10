@@ -7,6 +7,7 @@ import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router";
 import { Toaster } from "react-hot-toast";
 import Homepage from "../pages/HomePage";
+import AvailableFoods from "../pages/AvailableFoods";
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, loading } = useAuth();
@@ -34,8 +35,12 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Homepage /> },
       //{ path: "profile", element: <ProtectedRoute><Profile /></ProtectedRoute> },
-      { path: "signup", element: <Signup /> },
-      { path: "login", element: <Login /> },
+      { path: "/signup", element: <Signup /> },
+      { path: "/login", element: <Login /> },
+      { path: "availablefoods", element: <AvailableFoods />,
+        loader: () => fetch('http://localhost:3000/foods')
+       },
+
       //{ path: "skill-details/:id", element: <ProtectedRoute><SkillDetailsPage /></ProtectedRoute> },
       { path: "*", element: <PageNotFound></PageNotFound>}
     ],

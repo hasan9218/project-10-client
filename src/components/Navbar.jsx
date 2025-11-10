@@ -42,7 +42,7 @@ const Navbar = () => {
               >
                 {/* Always Visible Links */}
                 <li><MyLink to="/">Home</MyLink></li>
-                <li><MyLink to="/foods">Available Foods</MyLink></li>
+                <li><MyLink to="/availablefoods">Available Foods</MyLink></li>
 
                 {/* Private Links (Only When Logged In) */}
                 {user && (
@@ -58,7 +58,7 @@ const Navbar = () => {
             {/* Website Logo & Name */}
             <Link to="/" className="flex items-center text-green-800">
               <h2 className="text-lg md:text-3xl font-extrabold italic">
-                Plate<span className='text-green-400'>Share</span>
+                Plate<span className='text-green-600'>Share</span>
               </h2>
             </Link>
           </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu text-lg text-black menu-horizontal px-1">
               <li><MyLink to="/">Home</MyLink></li>
-              <li><MyLink to="/foods">Available Foods</MyLink></li>
+              <li><MyLink to="/availablefoods">Available Foods</MyLink></li>
             </ul>
           </div>
 
@@ -110,7 +110,7 @@ const Navbar = () => {
             ) : (
               <>
                 {/* Login Button */}
-                <li className="bg-green-800 text-white font-medium hover:bg-green-500 px-3 py-2 rounded-lg">
+                <li className="bg-green-800 text-white font-medium hover:bg-green-600 px-3 py-2 rounded-lg">
                   <MyLink to="/login">Login</MyLink>
                 </li>
               </>
