@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layout/MainLayout";
-import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import PageNotFound from "../pages/PageNotFound";
 import { useAuth } from "../context/AuthContext";
@@ -8,6 +7,7 @@ import { Navigate } from "react-router";
 import { Toaster } from "react-hot-toast";
 import Homepage from "../pages/HomePage";
 import AvailableFoods from "../pages/AvailableFoods";
+import Registration from "../pages/Registration";
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, loading } = useAuth();
@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Homepage /> },
       //{ path: "profile", element: <ProtectedRoute><Profile /></ProtectedRoute> },
-      { path: "/signup", element: <Signup /> },
+      { path: "/registration", element: <Registration></Registration> },
       { path: "/login", element: <Login /> },
       { path: "availablefoods", element: <AvailableFoods />,
         loader: () => fetch('http://localhost:3000/foods')

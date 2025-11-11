@@ -6,7 +6,8 @@ import FeaturedFoods from "./FeaturedFoods";
 import AvailableFoods from "./AvailableFoods";
 // import Cards from "../components/Cards";
 // import TopRatedProviders from "../components/TopRatedProviders";
-// import HowItWorks from "../components/HowItWorks";
+import HowItWorks from "../components/HowItWorks";
+import OurMission from "../components/OurMission";
 // import FeaturedCategories from "../components/FeaturedCategories";
 
 const Homepage = () => {
@@ -35,11 +36,13 @@ const Homepage = () => {
         <FeaturedFoods></FeaturedFoods>
       </div>
 
-
       <div data-aos="fade-left">
-        {/* <HowItWorks /> */}
+        <HowItWorks />
       </div>
 
+      <div data-aos="fade-up">
+        <OurMission></OurMission>
+      </div>
 
       <div data-aos="zoom-in">
         {/* <AvailableFoods /> */}

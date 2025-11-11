@@ -110,7 +110,7 @@ const Navbar = () => {
             ) : (
               <>
                 {/* Login Button */}
-                <li className="bg-green-800 text-white font-medium hover:bg-green-600 px-3 py-2 rounded-lg">
+                <li className="bg-green-700 text-white font-medium hover:bg-green-600 px-3 py-2 rounded-lg">
                   <MyLink to="/login">Login</MyLink>
                 </li>
               </>

@@ -1,4 +1,4 @@
-// src/pages/Login.jsx
+
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router';
@@ -57,24 +57,24 @@ const Login = () => {
             <div className="bg-white p-8 my-20 rounded-2xl shadow-2xl w-96">
                 <h2 className="text-2xl font-bold text-center mb-3 text-gray-800">Welcome Back</h2>
                 <p className="text-sm font-semibold text-center text-gray-600 mb-7">
-                    Log in to continue your TuneTrack
+                    Log in to continue your PlateShare
                 </p>
 
                 <form onSubmit={handleLogin} className="space-y-4">
                     <div>
-                        <label className="block text-black mb-1">Email</label>
+                        <label className="block text-black text-xl mb-1">Email</label>
                         <input
                             type="email"
                             placeholder="Enter your email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="w-full px-4 py-2 border text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            className="w-full px-4 py-2 border text-green-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-700"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-black mb-1">Password</label>
+                        <label className="block text-black text-xl mb-1">Password</label>
                         <div className="relative">
                             <input
                                 type={showPassword ? 'text' : 'password'}
@@ -82,12 +82,12 @@ const Login = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
-                                className="w-full px-4 py-2 border text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                className="w-full px-4 py-2 border text-green-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-700"
                             />
                             <button
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
-                                className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+                                className="absolute inset-y-0 right-0 flex items-center pr-3 text-green-700 hover:text-green-600"
                             >
                                 {showPassword ? <FaEyeSlash className="h-5 w-5" /> : <FaEye className="h-5 w-5" />}
                             </button>
@@ -96,14 +96,14 @@ const Login = () => {
 
                     <div className="text-right">
                         <Link to="/reset-password"
-                        state={{ email }} className="text-sm text-blue-500 hover:underline">
+                        state={{ email }} className="text-sm text-green-700 hover:underline">
                             Forgot Password?
                         </Link>
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full bg-blue-900 text-white py-2 cursor-pointer rounded-lg font-semibold hover:bg-blue-700 transition"
+                        className="w-full bg-green-700 text-white py-2 cursor-pointer rounded-lg font-semibold hover:bg-green-600 transition"
                     >
                         Login
                     </button>
@@ -117,7 +117,7 @@ const Login = () => {
                     <button
                         type="button"
                         onClick={handleGoogleSignIn}
-                        className="flex items-center justify-center gap-3 bg-blue-900 text-white px-5 py-2 rounded-lg w-full font-semibold hover:bg-blue-700 transition-colors cursor-pointer"
+                        className="flex items-center justify-center gap-3 bg-green-700 text-white px-5 py-2 rounded-lg w-full font-semibold hover:bg-green-600 transition-colors cursor-pointer"
                     >
                         <span className="text-2xl"><FcGoogle /></span>
                         Continue with Google
@@ -125,8 +125,8 @@ const Login = () => {
 
                     <p className="text-center text-gray-600 text-sm mt-4">
                         Don’t have an account?{' '}
-                        <Link to="/signup" className="text-blue-500 hover:underline">
-                            Sign up
+                        <Link to="/registration" className="text-green-700 hover:underline">
+                            Registration
                         </Link>
                     </p>
                 </form>

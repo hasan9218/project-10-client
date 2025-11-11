@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 
-const Signup = () => {
+const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -69,48 +69,48 @@ const Signup = () => {
 
         <form onSubmit={handleSignup} className="space-y-4">
           <div>
-            <label className="block text-black mb-1">Full Name</label>
+            <label className="block text-black text-xl mb-1">Full Name</label>
             <input
               type="text"
               name="name"
               placeholder="Enter your name"
               required
-              className="w-full px-4 py-2 border text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" // ✅ text-gray-800 for better readability
+              className="w-full px-4 py-2 border text-green-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-600" // ✅ text-gray-800 for better readability
             />
           </div>
           <div>
-            <label className="block text-black mb-1">Email</label>
+            <label className="block text-black text-xl mb-1">Email</label>
             <input
               type="email"
               name="email"
               placeholder="Enter your email"
               required
-              className="w-full px-4 py-2 border text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border text-green-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-600"
             />
           </div>
           <div>
-            <label className="block text-black mb-1">Photo URL</label>
+            <label className="block text-black text-xl mb-1">Photo URL</label>
             <input
               type="text"
               name="photoUrl"
               placeholder="Enter your photo URL"
-              className="w-full px-4 py-2 border text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-4 py-2 border text-green-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-600"
             />
           </div>
           <div>
-            <label className="block text-black mb-1">Password</label>
+            <label className="block text-black text-xl mb-1">Password</label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
                 name="password"
                 placeholder="Create a password"
                 required
-                className="w-full px-4 py-2 border text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-2 border text-green-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-600"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-green-700 hover:text-green-600"
               >
                 {showPassword ? (
                   <FaEyeSlash className="h-5 w-5" />
@@ -122,7 +122,7 @@ const Signup = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-900 text-white py-2 cursor-pointer rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="w-full bg-green-700 text-white py-2 cursor-pointer rounded-lg font-semibold hover:bg-green-600 transition"
           >
             Register
           </button>
@@ -135,7 +135,7 @@ const Signup = () => {
           <button
             type="button"
             onClick={handleGoogleSignIn}
-            className="flex items-center justify-center gap-3 bg-blue-900 text-white px-5 py-2 rounded-lg w-full font-semibold hover:bg-blue-700 transition-colors cursor-pointer"
+            className="flex items-center justify-center gap-3 bg-green-700 text-white px-5 py-2 rounded-lg w-full font-semibold hover:bg-green-600 transition-colors cursor-pointer"
           >
             <span className="text-2xl">
               <FcGoogle />
@@ -144,7 +144,7 @@ const Signup = () => {
           </button>
           <p className="text-center text-gray-600 text-sm mt-4">
             Already have an account?{' '}
-            <Link to="/login" className="text-blue-500 hover:underline">
+            <Link to="/login" className="text-green-700 hover:underline">
               Login
             </Link>
           </p>
@@ -154,4 +154,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Registration;
