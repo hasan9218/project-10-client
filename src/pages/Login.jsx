@@ -95,7 +95,7 @@ const Login = () => {
                     </div>
 
                     <div className="text-right">
-                        <Link to="/reset-password"
+                        <Link to=""
                         state={{ email }} className="text-sm text-green-700 hover:underline">
                             Forgot Password?
                         </Link>

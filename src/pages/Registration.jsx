@@ -39,9 +39,9 @@ const Registration = () => {
         displayName: name || null,
         photoURL: photoUrl || null,
       });
-      toast.success('Signup Successful');
+      toast.success('Registration Successful');
       // console.log('Signup successful:', res);
-      navigate('/Profile');
+      navigate('/');
     } catch (e) {
       toast.error(e.message);
       // console.error('Signup error:', e.code, e.message);

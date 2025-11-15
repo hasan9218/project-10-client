@@ -1,48 +1,99 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layout/MainLayout";
-import Login from "../pages/Login";
-import PageNotFound from "../pages/PageNotFound";
-import { useAuth } from "../context/AuthContext";
-import { Navigate } from "react-router";
-import { Toaster } from "react-hot-toast";
 import Homepage from "../pages/HomePage";
 import AvailableFoods from "../pages/AvailableFoods";
+import Login from "../pages/Login";
 import Registration from "../pages/Registration";
+import AddFood from "../pages/AddFood";
+import FoodDetails from "../pages/FoodDetails";
+import ManageMyFoods from "../pages/ManageMyFoods";
+import UpdateFood from "../pages/UpdateFood";
+import MyFoodRequests from "../pages/MyFoodRequests";
+import PageNotFound from "../pages/PageNotFound";
 
-function ProtectedRoute({ children }) {
-  const { isAuthenticated, loading } = useAuth();
+import PrivateRoute from "../privateRoute/PrivateRoute";
+import Spinner from "../components/Spinner";
 
-  if (loading) {
-    return <div className="text-center py-10">Loading...</div>;
-  }
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: (
+        <>
+          <MainLayout />
+        </>
+      ),
+      children: [
+        { path: "/", element: <Homepage /> },
+        { path: "/registration", element: <Registration /> },
+        { path: "/login", element: <Login /> },
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace state={{ from: window.location.pathname }} />;
-  }
+        {
+          path: "availablefoods",
+          element: <AvailableFoods />,
+          loader: () => fetch("http://localhost:3000/foods"),
+        },
 
-  return children;
-}
+        {
+          path: "addfood",
+          element: (
+            <PrivateRoute>
+              <AddFood />
+            </PrivateRoute>
+          ),
+        },
 
-export const router = createBrowserRouter([
+        {
+          path: "food/:id",
+          element: (
+            <PrivateRoute>
+              <FoodDetails />
+            </PrivateRoute>
+          ),
+          loader: async ({ params }) => {
+            const res = await fetch(`http://localhost:3000/foods/${params.id}`);
+            if (!res.ok) throw new Error("Failed to fetch food details");
+            return res.json();
+          },
+        },
+
+        {
+          path: "manage-my-foods",
+          element: (
+            <PrivateRoute>
+              <ManageMyFoods />
+            </PrivateRoute>
+          ),
+        },
+
+        {
+          path: "update-food/:id",
+          element: (
+            <PrivateRoute>
+              <UpdateFood />
+            </PrivateRoute>
+          ),
+          loader: async ({ params }) => {
+            const res = await fetch(`http://localhost:3000/foods/${params.id}`);
+            if (!res.ok) throw new Error("Failed to fetch food for update");
+            return res.json();
+          },
+        },
+
+        {
+          path: "my-food-requests",
+          element: (
+            <PrivateRoute>
+              <MyFoodRequests />
+            </PrivateRoute>
+          ),
+        },
+
+        { path: "*", element: <PageNotFound /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: (
-      <>
-        <MainLayout />
-        <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
-      </>
-    ),
-    children: [
-      { path: "/", element: <Homepage /> },
-      //{ path: "profile", element: <ProtectedRoute><Profile /></ProtectedRoute> },
-      { path: "/registration", element: <Registration></Registration> },
-      { path: "/login", element: <Login /> },
-      { path: "availablefoods", element: <AvailableFoods />,
-        loader: () => fetch('http://localhost:3000/foods')
-       },
-
-      //{ path: "skill-details/:id", element: <ProtectedRoute><SkillDetailsPage /></ProtectedRoute> },
-      { path: "*", element: <PageNotFound></PageNotFound>}
-    ],
-  },
-]);
+    fallbackElement: <Spinner />,
+  }
+);

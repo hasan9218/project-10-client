@@ -2,13 +2,9 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Banner from "../components/Banner";
-import FeaturedFoods from "./FeaturedFoods";
-import AvailableFoods from "./AvailableFoods";
-// import Cards from "../components/Cards";
-// import TopRatedProviders from "../components/TopRatedProviders";
+import FeaturedFoods from "../pages/FeaturedFoods";
 import HowItWorks from "../components/HowItWorks";
 import OurMission from "../components/OurMission";
-// import FeaturedCategories from "../components/FeaturedCategories";
 
 const Homepage = () => {
   useEffect(() => {
@@ -16,36 +12,30 @@ const Homepage = () => {
       duration: 1000,
       offset: 100,
       once: true,
+      easing: "ease-in-out",
     });
   }, []);
 
   return (
     <>
-
-      <div data-aos="fade-down">
+      {/* Banner Section */}
+      <div data-aos="fade-down" data-aos-duration="1200">
         <Banner />
       </div>
 
-
-      <div data-aos="fade-up">
-        {/* <Cards /> */}
+      {/* Featured Food Section */}
+      <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+        <FeaturedFoods />
       </div>
 
-
-      <div data-aos="fade-right">
-        <FeaturedFoods></FeaturedFoods>
-      </div>
-
-      <div data-aos="fade-left">
+      {/* How It Work Section */}
+      <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
         <HowItWorks />
       </div>
 
-      <div data-aos="fade-up">
-        <OurMission></OurMission>
-      </div>
-
-      <div data-aos="zoom-in">
-        {/* <AvailableFoods /> */}
+      {/* Our Mission Section */}
+      <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <OurMission />
       </div>
     </>
   );
