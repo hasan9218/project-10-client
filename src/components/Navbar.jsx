@@ -44,15 +44,6 @@ const Navbar = () => {
                 {/* Always Visible Links */}
                 <li><MyLink to="/">Home</MyLink></li>
                 <li><MyLink to="/availablefoods">Available Foods</MyLink></li>
-
-                {/* Private Links */}
-                {user && (
-                  <>
-                    <li><MyLink to="/add-food">Add Food</MyLink></li>
-                    <li><MyLink to="/manage-my-foods">Manage My Foods</MyLink></li>
-                    <li><MyLink to="/my-food-requests">My Food Requests</MyLink></li>
-                  </>
-                )}
               </ul>
             </div>
 

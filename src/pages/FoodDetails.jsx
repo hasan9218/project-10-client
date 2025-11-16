@@ -96,7 +96,7 @@ const FoodDetails = () => {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="py-16">
+      <div className="py-16 px-4">
         <div className="bg-white rounded-xl shadow-lg overflow-hidden border">
           <img
             src={food.foodImage}
@@ -116,7 +116,7 @@ const FoodDetails = () => {
                 className="w-10 h-10 rounded-full border"
               />
               <span className="flex items-center gap-2 text-gray-700">
-                 {food.donatorName}
+                {food.donatorName}
               </span>
             </div>
 
@@ -207,8 +207,8 @@ const FoodDetails = () => {
         )}
 
         {user?.email === food.donatorEmail && (
-          <div className="mt-20 border-t-2 border-green-200">
-            <h3 className="text-5xl font-semibold text-green-700 my-4">
+          <div className="mt-20">
+            <h3 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-green-700 my-4">
               Food Requests
             </h3>
 
@@ -217,65 +217,135 @@ const FoodDetails = () => {
             ) : requests.length === 0 ? (
               <p className="text-gray-500">No requests yet.</p>
             ) : (
-              <table className="w-full border border-green-100 my-7 rounded-lg overflow-hidden">
-                <thead className="bg-green-100 text-base text-green-700">
-                  <tr>
-                    <th className="p-2 text-left">User</th>
-                    <th className="p-2 text-left">Location</th>
-                    <th className="p-2 text-left">Reason</th>
-                    <th className="p-2 text-left">Contact</th>
-                    <th className="p-2 text-left">Status</th>
-                    <th className="p-2 text-left">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
+              <>
+                <div className="grid md:hidden gap-4">
                   {requests.map((req) => (
-                    <tr key={req._id} className="border-t text-green-700 hover:bg-gray-100">
-                      <td className="p-2 text-green-700 font-medium flex items-center gap-5">
+                    <div
+                      key={req._id}
+                      className=" bg-white rounded-xl p-4 shadow-sm"
+                    >
+                      
+                      <div className="flex items-center gap-3 mb-3">
                         <img
                           src={req.userPhoto}
                           alt={req.userName}
-                          className="w-8 h-8 rounded-full"
+                          className="w-10 h-10 rounded-full"
                         />
-                        {req.userName}
-                      </td>
-                      <td className="p-2 capitalize text-gray-600">{req.location}</td>
-                      <td className="p-2 capitalize text-gray-600">{req.reason}</td>
-                      <td className="p-2 capitalize text-gray-600">{req.contact}</td>
-                      <td
-                        className={`p-2 capitalize font-medium ${req.status === "accepted"
+                        <h4 className="text-lg font-semibold text-green-700">{req.userName}</h4>
+                      </div>
+
+                      
+                      <p className="text-gray-700 text-sm">
+                        <span className="font-semibold">Location:</span> {req.location}
+                      </p>
+                      <p className="text-gray-700 text-sm mt-1">
+                        <span className="font-semibold">Reason:</span> {req.reason}
+                      </p>
+                      <p className="text-gray-700 text-sm mt-1">
+                        <span className="font-semibold">Contact:</span> {req.contact}
+                      </p>
+
+                      <p
+                        className={`mt-2 font-semibold capitalize ${req.status === "accepted"
                             ? "text-green-600"
                             : req.status === "rejected"
                               ? "text-red-500"
                               : "text-gray-600"
                           }`}
                       >
-                        {req.status}
-                      </td>
-                      <td className="p-2">
-                        {req.status === "pending" && (
-                          <div className="flex gap-2">
-                            <button
-                              onClick={() => handleAction(req._id, "accepted")}
-                              className="px-3 py-1 bg-green-600 cursor-pointer hover:bg-green-700 text-white rounded"
-                            >
-                              Accept
-                            </button>
-                            <button
-                              onClick={() => handleAction(req._id, "rejected")}
-                              className="px-3 py-1 bg-red-500 cursor-pointer hover:bg-red-600 text-white rounded"
-                            >
-                              Reject
-                            </button>
-                          </div>
-                        )}
-                      </td>
-                    </tr>
+                        Status: {req.status}
+                      </p>
+
+                      
+                      {req.status === "pending" && (
+                        <div className="flex gap-2 mt-4">
+                          <button
+                            onClick={() => handleAction(req._id, "accepted")}
+                            className="flex-1 py-2 bg-green-600 hover:bg-green-700 text-white rounded"
+                          >
+                            Accept
+                          </button>
+
+                          <button
+                            onClick={() => handleAction(req._id, "rejected")}
+                            className="flex-1 py-2 bg-red-500 hover:bg-red-600 text-white rounded"
+                          >
+                            Reject
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   ))}
-                </tbody>
-              </table>
+                </div>
+
+                
+                <div className="overflow-x-auto rounded-lg hidden md:block">
+                  <table className="w-full border border-green-100 my-7 rounded-lg min-w-[650px]">
+                    <thead className="bg-green-100 text-base text-green-700">
+                      <tr>
+                        <th className="p-2 text-left">User</th>
+                        <th className="p-2 text-left">Location</th>
+                        <th className="p-2 text-left">Reason</th>
+                        <th className="p-2 text-left">Contact</th>
+                        <th className="p-2 text-left">Status</th>
+                        <th className="p-2 text-left">Action</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      {requests.map((req) => (
+                        <tr key={req._id} className="border-t text-green-700 hover:bg-gray-100">
+                          <td className="p-2 font-medium flex items-center gap-3">
+                            <img
+                              src={req.userPhoto}
+                              alt={req.userName}
+                              className="w-8 h-8 rounded-full"
+                            />
+                            {req.userName}
+                          </td>
+
+                          <td className="p-2 capitalize text-gray-600">{req.location}</td>
+                          <td className="p-2 capitalize text-gray-600">{req.reason}</td>
+                          <td className="p-2 capitalize text-gray-600">{req.contact}</td>
+
+                          <td
+                            className={`p-2 capitalize font-medium ${req.status === "accepted"
+                                ? "text-green-600"
+                                : req.status === "rejected"
+                                  ? "text-red-500"
+                                  : "text-gray-600"
+                              }`}
+                          >
+                            {req.status}
+                          </td>
+
+                          <td className="p-2">
+                            {req.status === "pending" && (
+                              <div className="flex gap-2">
+                                <button
+                                  onClick={() => handleAction(req._id, "accepted")}
+                                  className="px-3 py-1 bg-green-600 hover:bg-green-700 text-white rounded"
+                                >
+                                  Accept
+                                </button>
+                                <button
+                                  onClick={() => handleAction(req._id, "rejected")}
+                                  className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded"
+                                >
+                                  Reject
+                                </button>
+                              </div>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
             )}
           </div>
+
         )}
       </div>
     </div>

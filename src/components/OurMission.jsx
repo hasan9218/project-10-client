@@ -12,7 +12,7 @@ const OurMission = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0D542B]">
               Our Mission
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-10">
+            <p className="text-gray-600 text-sm md:text-lg leading-relaxed mb-10">
               At <span className="font-semibold text-green-600">PlateShare</span>, our mission is to
               build a world where no food goes to waste and no one goes hungry.
               We connect communities through food sharing, helping people donate their surplus meals

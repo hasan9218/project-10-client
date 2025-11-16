@@ -41,7 +41,7 @@ const UpdateFood = () => {
 
   return (
     <div>
-      <div className="py-16 bg-[#DBFCE7]">
+      <div className="py-16 bg-[#DBFCE7] px-4">
         <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">
           Update Food Information
         </h2>

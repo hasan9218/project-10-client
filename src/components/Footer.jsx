@@ -5,10 +5,12 @@ import { Link } from 'react-router';
 const Footer = () => {
   return (
     <footer className="bg-[#F0FDF4] text-[#364153] pt-10">
-      <div className='max-w-6xl mx-auto mb-10'><Link to="/" className="flex items-center text-green-800">
-        <img src={logo} alt="logo" className='md:w-48' />
-      </Link></div>
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className='max-w-6xl mx-auto mb-10 px-4'>
+        <Link to="/" className="flex items-center text-green-800">
+        <img src={logo} alt="logo" className='w-60 md:w-48' />
+      </Link>
+      </div>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
 
         <div className='flex flex-col space-y-3'>
           <h3 className="text-lg font-semibold mb-7">Contact Info</h3>

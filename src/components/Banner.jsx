@@ -34,8 +34,8 @@ const Banner = () => {
               alt="banner1"
               className="w-full h-full object-cover"
             />
-            <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center px-5">
-              <h2 className="text-green-700 text-3xl md:text-7xl font-semibold mb-5">
+            <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center lg:px-5">
+              <h2 className="text-green-700 text-xl lg:text-7xl md:text-4xl font-semibold mb-5">
                 Share Food, Spread Love
               </h2>
               <p className="text-sm md:text-2xl mb-24 text-green-900">
@@ -43,7 +43,7 @@ const Banner = () => {
               </p>
               <button
                 onClick={() => navigate("/availablefoods")}
-                className="bg-green-700 cursor-pointer hover:bg-green-600 text-white px-12 py-3 text-lg font-semibold rounded-lg shadow-md transition"
+                className="bg-green-700 cursor-pointer hover:bg-green-600 text-white px-12 py-3 text-sm md:text-lg font-semibold rounded-lg shadow-md transition"
               >
                 View All Foods
               </button>
@@ -59,8 +59,8 @@ const Banner = () => {
               alt="banner2"
               className="w-full h-full object-cover"
             />
-            <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center px-5">
-              <h2 className="text-green-700 text-3xl md:text-7xl font-semibold mb-5">
+            <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center lg:px-5">
+              <h2 className="text-green-700 text-xl lg:text-7xl md:text-4xl font-semibold mb-5">
                 Share Food, Spread Love
               </h2>
               <p className="text-sm md:text-2xl mb-24 text-green-900">
@@ -68,7 +68,7 @@ const Banner = () => {
               </p>
               <button
                 onClick={() => navigate("/availablefoods")}
-                className="bg-green-700 cursor-pointer hover:bg-green-600 text-white px-12 py-3 text-lg font-semibold rounded-lg shadow-md transition"
+                className="bg-green-700 cursor-pointer hover:bg-green-600 text-white px-12 py-3 text-sm md:text-lg font-semibold rounded-lg shadow-md transition"
               >
                 View All Foods
               </button>
@@ -84,8 +84,8 @@ const Banner = () => {
               alt="banner3"
               className="w-full h-full object-cover"
             />
-            <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center px-5">
-              <h2 className="text-green-700 text-3xl md:text-7xl font-semibold mb-5">
+            <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center lg:px-5">
+              <h2 className="text-green-700 text-xl lg:text-7xl md:text-4xl font-semibold mb-5">
                 Share Food, Spread Love
               </h2>
               <p className="text-sm md:text-2xl mb-24 text-green-900">
@@ -93,7 +93,7 @@ const Banner = () => {
               </p>
               <button
                 onClick={() => navigate("/availablefoods")}
-                className="bg-green-700 cursor-pointer hover:bg-green-600 text-white px-12 py-3 text-lg font-semibold rounded-lg shadow-md transition"
+                className="bg-green-700 cursor-pointer hover:bg-green-600 text-white px-12 py-3 text-sm md:text-lg font-semibold rounded-lg shadow-md transition"
               >
                 View All Foods
               </button>
