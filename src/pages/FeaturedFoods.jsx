@@ -7,7 +7,7 @@ const FeaturedFoods = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/foods")
+    fetch("https://plate-share-server-alpha.vercel.app/foods")
       .then((res) => res.json())
       .then((data) => {
         

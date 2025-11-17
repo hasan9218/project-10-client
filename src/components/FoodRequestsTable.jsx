@@ -11,7 +11,7 @@ const FoodRequestsTable = ({ foodId, foodOwnerEmail, user }) => {
     if (user?.email === foodOwnerEmail) {
       setLoading(true);
       axios
-        .get(`http://localhost:3000/food-requests/${foodId}`)
+        .get(`https://plate-share-server-alpha.vercel.app/food-requests/${foodId}`)
         .then((res) => setRequests(res.data))
         .catch((err) => {
           console.error("Error fetching requests:", err);
@@ -25,13 +25,13 @@ const FoodRequestsTable = ({ foodId, foodOwnerEmail, user }) => {
   const handleAction = async (reqId, action) => {
     try {
       // Update status
-      await axios.patch(`http://localhost:3000/food-requests/${reqId}`, {
+      await axios.patch(`https://plate-share-server-alpha.vercel.app/food-requests/${reqId}`, {
         status: action,
       });
 
       
       if (action === "accepted") {
-        await axios.patch(`http://localhost:3000/foods/${foodId}`, {
+        await axios.patch(`https://plate-share-server-alpha.vercel.app/foods/${foodId}`, {
           status: "donated",
         });
       }

@@ -12,7 +12,7 @@ const MyFoodRequests = () => {
   useEffect(() => {
     if (user?.email) {
       setLoading(true);
-      fetch(`http://localhost:3000/user-requests?email=${user.email}`)
+      fetch(`https://plate-share-server-alpha.vercel.app/user-requests?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setRequests(data);
@@ -36,8 +36,8 @@ const MyFoodRequests = () => {
   if (loading) return <Spinner />;
 
   return (
-    <div className="max-w-7xl mx-auto md:mx-2">
-      <div className="py-16">
+    <div className="max-w-7xl mx-auto">
+      <div className="py-16 px-4">
         <h2 className="text-4xl font-bold text-green-800 mb-8 text-center">
           My Food Requests
         </h2>

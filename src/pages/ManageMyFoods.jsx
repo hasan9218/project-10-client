@@ -14,7 +14,7 @@ const ManageMyFoods = () => {
   useEffect(() => {
     if (user?.email) {
       setLoading(true);
-      fetch(`http://localhost:3000/foods?email=${user.email}`)
+      fetch(`https://plate-share-server-alpha.vercel.app/foods?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setFoods(data);
@@ -36,7 +36,7 @@ const ManageMyFoods = () => {
           <div className="flex justify-end gap-2 mt-2">
             <button
               onClick={async () => {
-                const res = await fetch(`http://localhost:3000/foods/${id}`, { method: "DELETE" });
+                const res = await fetch(`https://plate-share-server-alpha.vercel.app/foods/${id}`, { method: "DELETE" });
                 if (res.ok) {
                   toast.success("Food deleted successfully!");
                   setFoods((prev) => prev.filter((f) => f._id !== id));

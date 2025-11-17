@@ -1,16 +1,57 @@
-# React + Vite
+🥗 PlateShare
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Community Food Sharing Platform — Share Food, Spread Kindness
 
-Currently, two official plugins are available:
+PlateShare is a community-driven platform that connects food donors with people in need.
+The goal is simple: reduce food waste and help the community by making extra food accessible.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Live link
 
-## React Compiler
+🔗 https://preeminent-blini-200a9a.netlify.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+📌 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🍽️ Share Extra Food Easily — Donors can post food with photo, expiry date, and pickup details.
+
+🤝 Connect With People in Need — Receivers can request food instantly.
+
+📍 Location-Based Food Listings — Shows foods available near the user.
+
+🔄 Real-Time Status Update — Food goes from Available → Requested → Donated.
+
+🔐 Secure Authentication — Login, register, and private routes.
+
+🛡️ Role-Based Access — Donors & Receivers get different options.
+
+💬 Request Approval System — Donors can accept or reject requests.
+
+🎨 Modern UI — Clean and responsive design for all devices.
+
+🌱 Reduces Food Waste — Promotes sustainability and social impact.
+
+🧩 Tech Stack
+
+✅ FRONTEND:
+
+■ React.js
+
+■ React Router
+
+■ DaisyUI
+
+■ Tailwind CSS
+
+■ Firebase Auth
+
+■ Axios
+
+✅ BACKEND:
+
+■ Node.js
+
+■ Express.js
+
+■ MongoDB
+
+■ CORS

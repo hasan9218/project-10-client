@@ -31,7 +31,7 @@ export const router = createBrowserRouter(
         {
           path: "availablefoods",
           element: <AvailableFoods />,
-          loader: () => fetch("http://localhost:3000/foods"),
+          loader: () => fetch("https://plate-share-server-alpha.vercel.app/foods"),
         },
 
         {
@@ -51,7 +51,7 @@ export const router = createBrowserRouter(
             </PrivateRoute>
           ),
           loader: async ({ params }) => {
-            const res = await fetch(`http://localhost:3000/foods/${params.id}`);
+            const res = await fetch(`https://plate-share-server-alpha.vercel.app/foods/${params.id}`);
             if (!res.ok) throw new Error("Failed to fetch food details");
             return res.json();
           },
@@ -74,7 +74,7 @@ export const router = createBrowserRouter(
             </PrivateRoute>
           ),
           loader: async ({ params }) => {
-            const res = await fetch(`http://localhost:3000/foods/${params.id}`);
+            const res = await fetch(`https://plate-share-server-alpha.vercel.app/foods/${params.id}`);
             if (!res.ok) throw new Error("Failed to fetch food for update");
             return res.json();
           },

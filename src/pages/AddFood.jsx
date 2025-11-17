@@ -47,7 +47,7 @@ const AddFood = () => {
         createdAt: new Date(),
       };
 
-      const res = await fetch("http://localhost:3000/foods", {
+      const res = await fetch("https://plate-share-server-alpha.vercel.app/foods", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newFood),

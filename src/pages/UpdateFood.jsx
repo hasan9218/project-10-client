@@ -25,7 +25,7 @@ const UpdateFood = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`http://localhost:3000/foods/${food._id}`, {
+    const res = await fetch(`https://plate-share-server-alpha.vercel.app/foods/${food._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
