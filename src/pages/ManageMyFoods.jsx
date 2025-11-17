@@ -76,7 +76,7 @@ const ManageMyFoods = () => {
             You haven’t added any food yet.
           </p>
         ) : (
-          <div className="bg-white rounded-xl shadow-md border p-4">
+          <div className="bg-white rounded-xl shadow-md border p-3">
 
            
             <div className="grid md:hidden gap-4">
